@@ -1,3 +1,6 @@
 [submodule "PCB-Climber"]
 	path = PCB-Climber
 	url = https://github.com/mackenzie-norman/PCB-Climber.git
+[submodule "oop-presentation"]
+	path = oop-presentation
+	url = https://github.com/mackenzie-norman/oop-presentation
