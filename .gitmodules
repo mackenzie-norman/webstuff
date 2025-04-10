@@ -1,0 +1,3 @@
+[submodule "PCB-Climber"]
+	path = PCB-Climber
+	url = https://github.com/mackenzie-norman/PCB-Climber.git
