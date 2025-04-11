@@ -2,25 +2,105 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <meta name="author" content="Oskar Wickström" />
-  <meta name="dcterms.date" content="2024-08-26" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Max's Books</title>
-  <link rel="icon" type="image/x-icon" href="book library.ico">
+  <link rel="icon" type="image/x-icon" href="book library.ico" />
   <link rel="stylesheet" href="reset.css" />
   <link rel="stylesheet" href="index.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin: 2rem;
+    }
+    .none {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    button {
+      margin: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <i>The first effect of the "influencing machine" to which schizophrenics imagine themselves plugged in — the Cartesian world as machine—is to make the patient see pictures, "something like a diluted reel of film in my brain." Pictures: spectral images on the inside, which represent external reality to the subject.</i>
-  <figure>
-<img src="roadpic.jpg" alt="A room in an old French castle (2024)" />
-<figcaption aria-hidden="true">The highway
-(2024)</figcaption>
-</figure>
 
-  <div class="debug-grid"></div>
-  <script src="index.js"></script>
+  <i>The first effect of the "influencing machine" to which schizophrenics imagine themselves plugged in — the Cartesian world as machine—is to make the patient see pictures, "something like a diluted reel of film in my brain." Pictures: spectral images on the inside, which represent external reality to the subject.</i>
+  <br>
+
+  <div class="gallery active">
+    <figure>
+      <img src="roadpic.jpg" alt="" />
+      <figcaption>The highway from above (2024)</figcaption>
+    </figure>
+    <figure>
+      <img src="thebestplace.jpg" alt="" />
+      <figcaption>"this is the best place in berlin" (2024)</figcaption>
+    </figure>
+    <figure>
+      <img src="natural.jpg" alt="A misty forest road" />
+      <figcaption>Stream in the gorge (2024)</figcaption>
+    </figure>
+    <figure>
+      <img src="powerlines.jpg" alt="A misty forest road" />
+      <figcaption>Powerlines (2024)</figcaption>
+    </figure>
+  </div>
+
+  <div class="gallery none">
+    <figure>
+      <img src="pilgrimvision.jpg" alt="" />
+      <figcaption>This view seems prehistoric (2024)</figcaption>
+    </figure>
+    <figure>
+      <img src="liqourstore.jpg" alt="" />
+      <figcaption>Rose City Liquor (2025)</figcaption>
+    </figure>
+    <figure>
+      <img src="snowday.jpg" alt="" />
+      <figcaption>Portland in winter (2025)</figcaption>
+    </figure>
+    <figure>
+      <img src="fromthecar.jpg" alt="" />
+      <figcaption>The highway from the car (2024)</figcaption>
+    </figure>
+  </div>
+
+  <button id="prev">Previous</button>
+  <button id="next">Next</button>
+
+  <script>
+    const galleries = document.querySelectorAll('.gallery');
+    let currentIndex = 0;
+
+    function showGallery(index) {
+      galleries.forEach((gallery, i) => {
+        gallery.classList.toggle('active', i === index);
+        gallery.classList.toggle('none', i !== index);
+      });
+    }
+
+    document.getElementById('next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % galleries.length;
+      showGallery(currentIndex);
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + galleries.length) % galleries.length;
+      showGallery(currentIndex);
+    });
+
+    // Initialize view
+    showGallery(currentIndex);
+  </script>
+
 </body>
 </html>
