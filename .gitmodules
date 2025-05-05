@@ -4,3 +4,6 @@
 [submodule "oop-presentation"]
 	path = oop-presentation
 	url = https://github.com/mackenzie-norman/oop-presentation
+[submodule "midterm"]
+	path = midterm
+	url = https://github.com/mackenzie-norman/midterm.git
